@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etrail Bangladesh - Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #ffffff;
+            --text-main: #111111;
+            --text-muted: #555555;
+            --accent-green: #10b981;
+            --accent-green-hover: #059669;
+            --card-bg: #f5f5f5;
+            --border-color: #e8e8e8;
+            --badge-bg: rgba(16, 185, 129, 0.10);
+            --shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-bg: #0f0f0f;
+                --text-main: #f0f0f0;
+                --text-muted: #999999;
+                --accent-green: #10b981;
+                --accent-green-hover: #34d399;
+                --card-bg: #1a1a1a;
+                --border-color: #2a2a2a;
+                --badge-bg: rgba(16, 185, 129, 0.12);
+                --shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+            }
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Instrument Sans', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            line-height: 1.65;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1140px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .content-side {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(18px);
+            animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--badge-bg);
+            color: var(--accent-green);
+            padding: 7px 14px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 13px;
+            align-self: flex-start;
+            font-family: 'Instrument Sans', sans-serif;
+        }
+
+        h1 {
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-main);
+            line-height: 1.35;
+            letter-spacing: -0.3px;
+            font-family: 'Instrument Sans', sans-serif;
+        }
+
+        p {
+            font-size: 15.5px;
+            color: var(--text-muted);
+            margin: 0;
+            font-family: 'Instrument Sans', sans-serif;
+        }
+
+        .notice-box {
+            background-color: var(--card-bg);
+            border-left: 3px solid var(--accent-green);
+            padding: 20px 22px;
+            border-radius: 0 4px 4px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .notice-box p {
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .address-box {
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            transition: border-color 0.3s ease;
+        }
+
+        .address-title {
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Instrument Sans', sans-serif;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 4px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14.5px;
+            font-family: 'Instrument Sans', sans-serif;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+            will-change: auto;
+            color: #ffffff;
+        }
+
+        .btn-fb {
+            background-color: #1877F2;
+        }
+
+        .btn-fb:hover {
+            background-color: #0f65d4;
+            box-shadow: 0 4px 14px rgba(24, 119, 242, 0.35);
+        }
+
+        .btn-wa {
+            background-color: #25D366;
+        }
+
+        .btn-wa:hover {
+            background-color: #1db954;
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+        }
+
+        .copyright {
+            font-size: 12px !important;
+            color: var(--text-muted) !important;
+            font-family: 'Instrument Sans', sans-serif;
+            margin-top: 4px;
+        }
+
+        .image-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(18px);
+            animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards;
+        }
+
+        .image-side img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 36px;
+                padding: 40px 24px;
+            }
+
+            .image-side {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+                gap: 28px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+
+            .social-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="content-side">
+
+            <div class="badge">📢 গুরুত্বপূর্ণ নোটিশ</div>
+
+            <h1>আমাদের ওয়েবসাইট আধুনিকীকরণের কাজ চলছে</h1>
+
+            <div class="notice-box">
+                <p>Etrail Bangladesh-এর ওয়েবসাইট উন্নয়ন ও নতুন প্রযুক্তিগত কার্যক্রমের জন্য আগামী ২২শে মে ২০২৬ থেকে
+                    ১৫ই জুন ২০২৬ পর্যন্ত সাময়িকভাবে সকল ক্রয়-বিক্রয় কার্যক্রম বন্ধ থাকবে এই ওয়েবসাইটে। তবে সোসাল
+                    মিডিয়ার মাধ্যমে ক্রয়-বিক্রয় চলমান থাকবে।</p>
+            </div>
+
+            <p>Etrail Bangladesh একটি বি-টু-সি (B2C) ই-কমার্স প্ল্যাটফর্ম, যা দেশের বিভিন্ন বিশ্ববিদ্যালয়ের সাবেক
+                শিক্ষার্থীদের সমন্বয়ে পরিচালিত। আমাদের টিম বর্তমানে ওয়েবসাইটকে আরও আধুনিক, দ্রুত ও ব্যবহারবান্ধব করার
+                লক্ষ্যে কাজ করছে।</p>
+
+            <p>এই উন্নয়ন কার্যক্রম শেষে আমরা আরও উন্নত সেবা, সহজ ব্যবহার অভিজ্ঞতা এবং নতুন কিছু সুবিধা নিয়ে পুনরায়
+                কার্যক্রম শুরু করবো, ইনশাআল্লাহ। সাময়িক অসুবিধার জন্য আমরা আন্তরিকভাবে দুঃখিত এবং আপনাদের সহযোগিতা ও
+                ভালোবাসার জন্য কৃতজ্ঞ।</p>
+
+            <div class="address-box">
+                <div class="address-title">হেড অফিস</div>
+                <p>২৭, অতীশ দীপঙ্কর হাইওয়ে রোড, ঢাকা – ১২১৪, বাংলাদেশ</p>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-btn btn-fb">
+                    <i class="fa-brands fa-facebook"></i> Facebook Page
+                </a>
+                <a href="#" class="social-btn btn-wa">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Chat
+                </a>
+            </div>
+
+            <p class="copyright">&copy; Etrail Bangladesh 2026. All rights reserved.</p>
+
+        </div>
+
+        <div class="image-side">
+            <img src="etraile-maintanace.jpeg" alt="Etrail Maintenance">
+        </div>
+
+    </div>
+
+</body>
+
+</html>
